@@ -44,4 +44,7 @@ html, body, #app{
   padding: 0;
   height: 100%;
 }
+.el-table th {
+  background: #ebeef5
+}
 </style>

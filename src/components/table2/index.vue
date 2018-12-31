@@ -16,6 +16,7 @@
       :data="tableList"
       border
       stripe
+      highlight-current-row
       size='mini'
       style="width: 100%">
       <el-table-column

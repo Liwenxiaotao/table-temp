@@ -18,6 +18,7 @@
       border
       stripe
       size='mini'
+      highlight-current-row
       style="width: 100%">
       <el-table-column
         type="index"
@@ -66,16 +67,16 @@
     <el-dialog
       title="增加"
       :visible.sync="addDialogVisible"
-      width="300">
+      width="400px">
       <el-form :model="searchform" label-position="right" label-width="40px">
         <el-form-item label="id">
-          <el-input v-model="addEditForm.id" size='mini' placeholder="id"></el-input>
+          <el-input v-model="addEditForm.id" size='mini' placeholder="id" style="width: 300px"></el-input>
         </el-form-item>
          <el-form-item label="名字">
-          <el-input v-model="addEditForm.name" size='mini' placeholder="名字"></el-input>
+          <el-input v-model="addEditForm.name" size='mini' placeholder="名字" style="width: 300px"></el-input>
         </el-form-item>
          <el-form-item label="价格">
-          <el-input v-model="addEditForm.price" size='mini' placeholder="价格"></el-input>
+          <el-input v-model="addEditForm.price" size='mini' placeholder="价格" style="width: 300px"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -133,6 +134,7 @@ export default {
       const url = this.type === 'add' ? '/add' : '/update'
       axios.post(url, this.addEditForm).then(res => {
         console.log(res)
+        this.addDialogVisible = false
       }).catch(error => {
         console.log(error)
       })
