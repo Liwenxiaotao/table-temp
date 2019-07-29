@@ -1,6 +1,7 @@
 import input from '@/components/input/index'
 import form from '@/components/form/index'
 import test from '@/components/test/index'
+import button from '@/components/button/index'
 
 const routerConfig = [
     {
@@ -17,6 +18,11 @@ const routerConfig = [
       path: '/form',
       name: 'form',
       component: form
+    },
+    {
+      path: '/button',
+      name: 'button',
+      component: button
     },
     {
       path: '/test',
