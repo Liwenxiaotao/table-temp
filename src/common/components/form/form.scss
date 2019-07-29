@@ -1,0 +1,169 @@
+@import '../../assets/style/mixins/mixins.scss';
+@import "../../assets/style/mixins/utils.scss";
+@import '../../assets/style/common/var.scss';
+
+@include b(form) {
+  @include m(label-left) {
+    & .gb-form-item__label {
+      text-align: left;
+    }
+  }
+  @include m(label-top) {
+    & .gb-form-item__label {
+      float: none;
+      display: inline-block;
+      text-align: left;
+      padding: 0 0 10px 0;
+    }
+  }
+  @include m(inline) {
+    & .gb-form-item {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+    & .gb-form-item__label {
+      float: none;
+      display: inline-block;
+    }
+    & .gb-form-item__content {
+      display: inline-block;
+      vertical-align: top;
+    }
+    &.gb-form--label-top .gb-form-item__content {
+      display: block;
+    }
+  }
+}
+@include b(form-item) {
+  margin-bottom: 22px;
+  @include utils-clearfix;
+
+  & .gb-form-item {
+    margin-bottom: 0;
+  }
+
+  & .gb-input__validateIcon {
+    display: none;
+  }
+
+  @include m(medium) {
+    .gb-form-item__label {
+      line-height: 36px;
+    }
+    .gb-form-item__content {
+      line-height: 36px;
+    }
+  }
+  @include m(small) {
+    .gb-form-item__label {
+      line-height: 32px;
+    }
+    .gb-form-item__content {
+      line-height: 32px;
+    }
+    &.gb-form-item {
+      margin-bottom: 18px;
+    }
+    .gb-form-item__error {
+      padding-top: 2px;
+    }
+  }
+  @include m(mini) {
+    .gb-form-item__label {
+      line-height: 28px;
+    }
+    .gb-form-item__content {
+      line-height: 28px;
+    }
+    &.gb-form-item {
+      margin-bottom: 18px;
+    }
+    .gb-form-item__error {
+      padding-top: 1px;
+    }
+  }
+
+  @include e(label-wrap) {
+    float: left;
+    .gb-form-item__label {
+      display: inline-block;
+      float: none;
+    }
+  }
+
+  @include e(label) {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: 14px;
+    color: $--color-text-regular;
+    line-height: 40px;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+  }
+  @include e(content) {
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    @include utils-clearfix;
+
+    .gb-input-group {
+      vertical-align: top;
+    }
+  }
+  @include e(error) {
+    color: $--color-danger;
+    font-size: 12px;
+    line-height: 1;
+    padding-top: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    @include m(inline) {
+      position: relative;
+      top: auto;
+      left: auto;
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  @include when(required) {
+    @include pseudo('not(.is-no-asterisk)') {
+      & > .gb-form-item__label:before,
+      & .gb-form-item__label-wrap > .gb-form-item__label:before {
+        content: '*';
+        color: $--color-danger;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include when(error) {
+    & .gb-input__inner,
+    & .gb-textarea__inner {
+      &, &:focus {
+        border-color: $--color-danger;
+      }
+    }
+    & .gb-input-group__append,
+    & .gb-input-group__prepend {
+      & .gb-input__inner {
+        border-color: transparent;
+      }
+    }
+    .gb-input__validateIcon {
+      color: $--color-danger;
+    }
+  }
+
+  @include m(feedback) {
+    .gb-input__validateIcon {
+      display: inline-block;
+    }
+  }
+}
+
+

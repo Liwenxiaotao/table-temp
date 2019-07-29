@@ -3,20 +3,14 @@
     <el-container style="height: 100%">
       <el-aside width="200px">
         <el-menu
-          default-active="table1"
+          default-active="input"
           background-color = "rgb(84, 92, 100)"
           text-color="rgb(255, 255, 255)"
           router
           style="height: 100%">
-          <el-menu-item index="table1">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>表格一</span>
-            </template>
-          </el-menu-item>
-          <el-menu-item index="table2">
-            <i class="el-icon-menu"></i>
-            <span slot="title">表格二</span>
+          <el-menu-item v-for="route in routerConfig" :index="route.name" :key="route.name">
+            <i class="el-icon-location"></i>
+            <span>{{route.name}}</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
@@ -28,8 +22,14 @@
 </template>
 
 <script>
+import routerConfig from './router/routerConfig.js'
 export default {
-  name: 'App'
+  data() {
+    return {
+      routerConfig
+    }
+  },
+  name: 'App',
 }
 </script>
 
